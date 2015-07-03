@@ -1,0 +1,5 @@
+---
+
+- name: apt-get update the server
+  apt: update_cache=yes
+
