@@ -1,0 +1,15 @@
+services:
+  ec2:
+    machine1: # alias
+      image_id: ami-accff2b1
+      min_count: 1 # default 1
+      max_count: 1 # default 1
+      key_name: 'smatyas'
+      instance_type: 't2.micro'
+
+  ansible:
+    machine1:
+      playbooks: ['site.yml']
+      hostgroups: ['drupal_hosts']
+      hostvars:
+        ansible_ssh_user: ubuntu
