@@ -1,0 +1,21 @@
+---
+
+- name: check out the latest drush 7.x from github
+  git: >
+    repo=https://github.com/drush-ops/drush.git
+    dest=/usr/local/src/drush
+    version=7.x
+    update=yes
+
+- name: install drush dependencies
+  shell: >
+    composer install --prefer-source --no-interaction
+    chdir=/usr/local/src/drush
+  register: drush_composer_install
+  changed_when: "'Nothing to install or update' not in drush_composer_install.stderr"
+
+- name: symlink drush
+  file: >
+    src=/usr/local/src/drush/drush
+    dest=/usr/local/bin/drush
+    state=link
