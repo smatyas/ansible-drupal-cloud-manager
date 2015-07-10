@@ -11,7 +11,7 @@
     - update
     - misc
     - apache # TODO: it could be a dependency
+    - mysql # TODO: it could be a dependency
 
 #    - php
-#    - mysql
 #    - drupal
