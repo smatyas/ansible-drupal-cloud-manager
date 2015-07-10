@@ -1,6 +1,4 @@
 ---
-
-#- include: vars/hosts.yml
 - hosts: drupal_hosts
 
   sudo: yes
@@ -12,6 +10,7 @@
 
   roles:
     - update
-    - php
-    - mysql
-    - drupal
+    - misc
+#    - php
+#    - mysql
+#    - drupal
