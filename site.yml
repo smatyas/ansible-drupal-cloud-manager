@@ -1,16 +1,17 @@
 ---
 - hosts: drupal_hosts
-
   sudo: yes
 
-  vars:
-    - db_name: drupal
-    - db_user: drupal
-    - db_password: drupal
+#  vars:
+#    - db_name: drupal
+#    - db_user: drupal
+#    - db_password: drupal
 
   roles:
     - update
     - misc
+    - apache # TODO: it could be a dependency
+
 #    - php
 #    - mysql
 #    - drupal
