@@ -1,6 +1,6 @@
 ---
 
-- name: Install apache server
+- name: install/update apache2
   apt: name=apache2 state=latest
   notify:
     - apache-restart

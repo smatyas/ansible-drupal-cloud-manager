@@ -1,7 +1,7 @@
 ---
 
-- name: Install Midnight Commander
+- name: install/update mc (Midnight Commander)
   apt: name=mc state=latest
 
-- name: Install htop
+- name: install/update htop
   apt: name=htop state=latest
