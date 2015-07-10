@@ -12,7 +12,6 @@
     - misc
     - apache # TODO: it could be a dependency
     - mysql # TODO: it could be a dependency
-    - php # TODO: it could be a dependency
     - composer # TODO: it could be a dependency
 
 #    - drupal
