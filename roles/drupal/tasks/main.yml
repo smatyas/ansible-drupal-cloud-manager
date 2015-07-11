@@ -1,6 +1,6 @@
 ---
 
-- include: apache.yml
+- include: apache.yml tags=drupal-requirements
 
 #- name: Install git
 #  apt: name=git state=latest
