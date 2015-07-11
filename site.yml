@@ -10,8 +10,4 @@
   roles:
     - update
     - misc
-    - apache # TODO: it could be a dependency
-    - mysql # TODO: it could be a dependency
-    - drush # TODO: it could be a dependency
-
-#    - drupal
+    - drupal

@@ -1,0 +1,8 @@
+---
+
+- name: ensure apache mod_rewrite is enable
+  action: command a2enmod rewrite
+  register: apache_mod_rewrite_enable
+  changed_when: "'already enabled' not in apache_mod_rewrite_enable.stdout"
+  notify:
+    - apache-restart
