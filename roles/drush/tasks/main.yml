@@ -1,5 +1,10 @@
 ---
 
+- name: ensure php5-json is installed
+  apt: name=php5-json state=present
+  notify:
+    - apache-restart
+  
 - name: check out the latest drush 7.x from github
   git: >
     repo=https://github.com/drush-ops/drush.git

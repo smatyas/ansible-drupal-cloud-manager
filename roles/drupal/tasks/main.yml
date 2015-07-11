@@ -2,6 +2,7 @@
 
 - include: apache.yml tags=drupal-requirements
 - include: php.yml tags=drupal-requirements
+- include: drush.yml tags=drupal-requirements
 
 #- name: Install git
 #  apt: name=git state=latest
