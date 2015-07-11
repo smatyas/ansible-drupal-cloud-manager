@@ -2,6 +2,3 @@
 
 - name: install/update mysql-server
   apt: name=mysql-server state=latest
-
-#- include: create_db.yml
-

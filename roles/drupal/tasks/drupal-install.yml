@@ -1,0 +1,24 @@
+---
+
+- name: drupal-install | copy drush makefile
+  copy: src=drupal-site.yml dest=/var/www/drupal/drupal-site.yml
+
+- name: drupal-install | check lock file
+  stat: path=/var/www/drupal/.installed.lock
+  register: drupalLock
+
+- name: drupal-install | run drush make
+  command: drush make drupal-site.yml -y chdir=/var/www/drupal
+  when: drupalLock.stat.exists == false
+
+- name: drupal-install | run drush site-install
+  command: drush site-install -y --account-name=admin --account-pass=admin --site-name="Generated drupal site" --db-url=mysql://drupal:drupal@localhost/drupal chdir=/var/www/drupal
+  when: drupalLock.stat.exists == false
+
+- name: drupal-install | set permissons
+  file: path=/var/www/drupal state=directory owner=www-data group=www-data recurse=yes
+  when: drupalLock.stat.exists == false
+
+- name: drupal-install | create lock file
+  file: path=/var/www/drupal/.installed.lock state=touch owner=www-data group=www-data
+  when: drupalLock.stat.exists == false

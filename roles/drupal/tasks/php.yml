@@ -1,6 +1,6 @@
 ---
 
-- name: php modules
+- name: php | php modules
   action: apt name={{item}}
   with_items:
     - php5-mysql
@@ -10,7 +10,7 @@
   notify:
     - apache-restart
 
-- name: php.ini config
+- name: php | php.ini config
   template: src=etc-php5-apache2-php-ini.j2 dest=/etc/php5/apache2/php.ini
   notify:
     - apache-restart

@@ -1,0 +1,14 @@
+---
+
+- name: mysql | ensure python-mysqldb is installed
+  apt: name=python-mysqldb state=present
+
+- name: mysql | ensure that the drupal database exists
+  mysql_db: db=drupal state=present
+
+- name: mysql | create the drupal mysql user
+  mysql_user: >
+    name=drupal
+    password=drupal
+    priv=drupal.*:ALL
+    host=localhost

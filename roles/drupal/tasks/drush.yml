@@ -1,7 +1,7 @@
 ---
 
-- name: ensure /etc/drush directory exists
+- name: drush | ensure /etc/drush directory exists
   file: path=/etc/drush state=directory
 
-- name: copy drush.ini
+- name: drush | copy drush.ini
   template: src=etc-drush-drush-ini.j2 dest=/etc/drush/drush.ini
