@@ -6,3 +6,6 @@
   changed_when: "'already enabled' not in apache_mod_rewrite_enable.stdout"
   notify:
     - apache-restart
+
+- name: ensure drupal directory exists
+  file: path=/var/www/drupal state=directory owner=www-data group=www-data mode=0775
