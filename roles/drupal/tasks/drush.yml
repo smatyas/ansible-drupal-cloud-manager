@@ -3,8 +3,5 @@
 - name: ensure /etc/drush directory exists
   file: path=/etc/drush state=directory
 
-- name: symlink php.ini from /etc/php5/apache2/php.ini
-  file: >
-    src=/etc/php5/apache2/php.ini
-    dest=/etc/drush/php.ini
-    state=link
+- name: copy drush.ini
+  template: src=etc-drush-drush-ini.j2 dest=/etc/drush/drush.ini

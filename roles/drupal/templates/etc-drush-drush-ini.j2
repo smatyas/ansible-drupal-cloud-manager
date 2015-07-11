@@ -1,0 +1,53 @@
+; When in use, the variables defined in this file
+; will override the setting values that appear in
+; your php.ini file.  See the examples below for
+; some values that may need to be set in order for
+; drush to work.
+;
+; NOTE:  There is a certain amount of overhead
+; required for each override, so drush.ini should
+; only be used for a relatively small number
+; of variables.  Comment out any variable that
+; has the same value as the webserver php.ini
+; to keep the size of the override list small.
+;
+; To fully specify the value of all php.ini variables,
+; copy your webserver php.ini file to one of the
+; locations mentioned above (e.g. /etc/drush/php.ini)
+; and edit it to suit.  Alternately, you may use
+; the environment variable PHP_INI to point at
+; the file that Drush should use.
+;
+;    export PHP_INI='/path/to/php.ini'
+;
+; The options listed below are particularly relevant
+; to drush.
+;
+
+;
+; drush needs as much memory as Drupal in order
+; to run; make the memory limit setting match
+; what you have in your webserver's php.ini.
+;
+memory_limit = 128M
+
+;
+; Show all errors and direct them to stderr
+; when running drush.
+;
+error_reporting = E_ALL | E_NOTICE | E_STRICT
+display_errors = stderr
+
+;
+; If your php.ini for your webserver is too
+; restrictive, you can re-enable functionality
+; for drush by adjusting values in this file.
+;
+; Here are some examples of settings that are
+; sometimes set to restrictive values in a
+; webserver's php.ini:
+;
+;safe_mode =
+;open_basedir =
+;disable_functions =
+;disable_classes =
