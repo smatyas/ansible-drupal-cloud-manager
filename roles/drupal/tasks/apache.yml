@@ -11,7 +11,7 @@
   file: path=/var/www/drupal state=directory owner=www-data group=www-data mode=0775
 
 - name: vhost config
-  action: template src=etc-apache2-sites-available-drupal.conf.j2 dest=/etc/apache2/sites-available/drupal.conf
+  template: src=etc-apache2-sites-available-drupal-conf.j2 dest=/etc/apache2/sites-available/drupal.conf
   notify:
     - apache-reload
 
