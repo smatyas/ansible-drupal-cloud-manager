@@ -1,0 +1,14 @@
+---
+
+apache_user: www-data
+apache_group: www-data
+apache_www_dir: "/var/www"
+apache_log_dir: "/var/log/apache2"
+drupal_server_name: "drupal.dev"
+drupal_site_name: "Drupal site @ {{ ansible_hostname }}"
+drupal_db_name: drupal
+drupal_db_host: localhost
+drupal_db_user: drupal
+drupal_db_password: drupal
+drupal_account_name: admin
+drupal_account_password: admin

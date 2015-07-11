@@ -4,4 +4,4 @@
   file: path=/etc/drush state=directory
 
 - name: drush | copy drush.ini
-  template: src=etc-drush-drush-ini.j2 dest=/etc/drush/drush.ini
+  copy: src=etc/drush/drush.ini dest=/etc/drush/drush.ini

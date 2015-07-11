@@ -8,10 +8,10 @@
     - apache-restart
 
 - name: apache | ensure drupal directory exists
-  file: path=/var/www/drupal state=directory owner=www-data group=www-data mode=0775
+  file: path={{ apache_www_dir }}/{{ drupal_server_name }} state=directory owner={{ apache_user }} group={{ apache_user }} mode=0775
 
 - name: apache | vhost config
-  template: src=etc-apache2-sites-available-drupal-conf.j2 dest=/etc/apache2/sites-available/drupal.conf
+  template: src=etc/apache2/sites/available/drupal.conf.j2 dest=/etc/apache2/sites-available/{{ drupal_server_name }}.conf
   notify:
     - apache-reload
 
@@ -23,7 +23,7 @@
     - apache-reload
 
 - name: apache | enable drupal vhost
-  action: command a2ensite drupal
+  action: command a2ensite {{ drupal_server_name }}
   register: apache_enable_vhost
   changed_when: "'already enabled' not in apache_enable_vhost.stdout"
   notify:

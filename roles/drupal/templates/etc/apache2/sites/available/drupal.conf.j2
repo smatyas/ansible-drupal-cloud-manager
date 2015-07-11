@@ -1,0 +1,15 @@
+<VirtualHost *:80>
+    ServerName {{ drupal_server_name }}
+
+    DocumentRoot {{ apache_www_dir }}/{{ drupal_server_name }}/
+
+    <Directory {{ apache_www_dir }}/{{ drupal_server_name }}>
+        Options -Indexes +FollowSymLinks
+        AllowOverride All
+        Order allow,deny
+        allow from all
+    </Directory>
+
+    CustomLog {{ apache_log_dir }}/{{ drupal_server_name }}.access.log combined
+    ErrorLog {{ apache_log_dir }}/{{ drupal_server_name }}.error.log
+</VirtualHost>

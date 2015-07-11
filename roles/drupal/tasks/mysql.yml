@@ -4,11 +4,13 @@
   apt: name=python-mysqldb state=present
 
 - name: mysql | ensure that the drupal database exists
-  mysql_db: db=drupal state=present
+  mysql_db: db={{ drupal_db_name }} state=present
+  when: drupal_db_host == "localhost"
 
 - name: mysql | create the drupal mysql user
   mysql_user: >
-    name=drupal
-    password=drupal
-    priv=drupal.*:ALL
+    name={{ drupal_db_user }}
+    password={{ drupal_db_password }}
+    priv={{ drupal_db_name }}.*:ALL
     host=localhost
+  when: drupal_db_host == "localhost"
