@@ -17,3 +17,5 @@ services:
         drupal_db_name: drupal_db
         drupal_db_user: drupal_db_user
         drupal_db_password: uu6u6u5e546gwtsruj
+        drupal_account_name: admin
+        drupal_account_password: adminpass
