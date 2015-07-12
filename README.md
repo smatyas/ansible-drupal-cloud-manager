@@ -32,7 +32,7 @@ So you can choose from one of these options, to use it:
    
    **IMPORTANT: although default values are provided, you should ALWAYS override the default passwords in your cloud-manager config.**
    
-   The default settings and credentials can be found in the [drupal role defaults](drupal/defaults/main.yml). These variables can be overridden in your cloud-manager config. See the examples!
+   The default settings and credentials can be found in the [drupal role defaults](roles/drupal/defaults/main.yml). These variables can be overridden in your cloud-manager config. See the examples!
   
    
   1.3. Set environment variables (optional)
@@ -52,7 +52,7 @@ As for other ansible playbooks to use, use should provide your inventory file.
 The playbook will install all the dependencies and softwares needed to run Drupal.  
 Using drush, it configures a ready-to-use drupal instance with an admin user. 
 
-The default settings and credentials can be found in the [drupal role defaults](drupal/defaults/main.yml).
+The default settings and credentials can be found in the [drupal role defaults](roles/drupal/defaults/main.yml).
 
 **IMPORTANT: although default values are provided, you should ALWAYS override the passwords, i.e. using hostvars.**
 
