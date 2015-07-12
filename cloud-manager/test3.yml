@@ -1,0 +1,7 @@
+# This example configuration will not spin up any machines, won't run the playbook, just will run a test.
+services:
+  test:
+    machine1:
+      - type: 'http' # the type parameter is mandatory
+        url: 'http://index.hu'
+        body_regex: 'Index.hu'

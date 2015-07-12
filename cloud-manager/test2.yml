@@ -1,3 +1,6 @@
+# This example configuration will do the following:
+#   1. spin up two independent machines in Amazon EC2 (t2.micro instances named machine21 and machine22, using the ami-accff2b1 image for both)
+#   2. run the site.yml ansible playbook on the started machines
 services:
   ec2:
     machine21: # alias
