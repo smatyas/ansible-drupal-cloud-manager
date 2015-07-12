@@ -19,3 +19,14 @@ services:
         drupal_db_password: uu6u6u5e546gwtsruj
         drupal_account_name: admin
         drupal_account_password: adminpass
+
+  test:
+    machine1:
+      - type: http # the type parameter is mandatory
+#        url: ~ # default is to provide by cloud service (ip or url)
+#        code: 200 # default is 200
+        body_regex: '/.*Welcome to Drupal @ machine1 cloud server.*/'
+
+      - type: http
+        url: /nonexistent-url # if the url starts with "/", than it will be appended to the base url
+        code: 404
