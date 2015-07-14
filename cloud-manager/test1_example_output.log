@@ -1,0 +1,185 @@
+$ time ANSIBLE_FORCE_COLOR=true ANSIBLE_HOST_KEY_CHECKING=false AWS_REGION=eu-central-1 cloud_manager manage cloud-manager/test1.yml                       
+Managing configuration: cloud-manager/test1.yml
+Starting management...
+  - managing ec2
+    - managing machine machine1
+      > instance started: i-529cfb93 (machine1)
+    - waiting all machines to start... OK
+  - managing ansible
+    - generating hosts.json
+    - running playbooks...
+      - executing playbook site.yml...
+
+1. try...
+invoking external command: PYTHONUNBUFFERED=1 ansible-playbook -i `which cloud_manager_ansible_inventory` site.yml
+started with pid: 19729
+
+PLAY [drupal_hosts] *********************************************************** 
+
+GATHERING FACTS *************************************************************** 
+fatal: [52.28.64.54] => SSH Error: ssh: connect to host 52.28.64.54 port 22: Connection timed out
+    while connecting to 52.28.64.54:22                                                                                                                                                                                                             
+It is sometimes useful to re-run the command using -vvvv, which prints SSH debug output to help diagnose the issue.                                                                                                                                
+
+TASK: [update | Update the server] ******************************************** 
+FATAL: no hosts matched or all hosts have already failed -- aborting
+
+
+PLAY RECAP ******************************************************************** 
+           to retry, use: --limit @/home/matyi/site.retry
+
+52.28.64.54                : ok=0    changed=0    unreachable=1    failed=0   
+
+exit status: pid 19729 exit 3
+retrying in 10 seconds...
+
+2. try...
+invoking external command: PYTHONUNBUFFERED=1 ansible-playbook -i `which cloud_manager_ansible_inventory` site.yml
+started with pid: 19768
+
+PLAY [drupal_hosts] *********************************************************** 
+
+GATHERING FACTS *************************************************************** 
+fatal: [52.28.64.54] => SSH Error: ssh: connect to host 52.28.64.54 port 22: Connection timed out
+    while connecting to 52.28.64.54:22                                                                                                                                                                                                             
+It is sometimes useful to re-run the command using -vvvv, which prints SSH debug output to help diagnose the issue.                                                                                                                                
+
+TASK: [update | Update the server] ******************************************** 
+FATAL: no hosts matched or all hosts have already failed -- aborting
+
+
+PLAY RECAP ******************************************************************** 
+           to retry, use: --limit @/home/matyi/site.retry
+
+52.28.64.54                : ok=0    changed=0    unreachable=1    failed=0   
+
+exit status: pid 19768 exit 3
+retrying in 10 seconds...
+
+3. try...
+invoking external command: PYTHONUNBUFFERED=1 ansible-playbook -i `which cloud_manager_ansible_inventory` site.yml
+started with pid: 19801
+
+PLAY [drupal_hosts] *********************************************************** 
+
+GATHERING FACTS *************************************************************** 
+ok: [52.28.64.54]
+
+TASK: [update | Update the server] ******************************************** 
+ok: [52.28.64.54]
+
+TASK: [misc | install/update mc (Midnight Commander)] ************************* 
+changed: [52.28.64.54]
+
+TASK: [misc | install/update htop] ******************************************** 
+changed: [52.28.64.54]
+
+TASK: [apache | install/update apache2] *************************************** 
+changed: [52.28.64.54]
+
+TASK: [mysql | install/update mysql-server] *********************************** 
+changed: [52.28.64.54]
+
+TASK: [php | install/update php5] ********************************************* 
+changed: [52.28.64.54]
+
+TASK: [composer | install/update curl] **************************************** 
+changed: [52.28.64.54]
+
+TASK: [composer | install composer globally] ********************************** 
+changed: [52.28.64.54]
+
+TASK: [composer | update composer] ******************************************** 
+ok: [52.28.64.54]
+
+TASK: [git | install/update git] ********************************************** 
+changed: [52.28.64.54]
+
+TASK: [drush | ensure php5-json is installed] ********************************* 
+ok: [52.28.64.54]
+
+TASK: [drush | check out the latest drush 7.x from github] ******************** 
+changed: [52.28.64.54]
+
+TASK: [drush | install drush dependencies] ************************************ 
+changed: [52.28.64.54]
+
+TASK: [drush | symlink drush] ************************************************* 
+changed: [52.28.64.54]
+
+TASK: [drupal | apache | ensure apache mod_rewrite is enable] ***************** 
+changed: [52.28.64.54]
+
+TASK: [drupal | apache | ensure drupal directory exists] ********************** 
+changed: [52.28.64.54]
+
+TASK: [drupal | apache | vhost config] **************************************** 
+changed: [52.28.64.54]
+
+TASK: [drupal | apache | disable default vhost] ******************************* 
+changed: [52.28.64.54]
+
+TASK: [drupal | apache | enable drupal vhost] ********************************* 
+changed: [52.28.64.54]
+
+TASK: [drupal | php | php modules] ******************************************** 
+changed: [52.28.64.54] => (item=php5-mysql,php5-curl,php5-gd,libapache2-mod-php5)
+
+TASK: [drupal | php | php.ini config] ***************************************** 
+changed: [52.28.64.54]
+
+TASK: [drupal | mysql | ensure python-mysqldb is installed] ******************* 
+changed: [52.28.64.54]
+
+TASK: [drupal | mysql | ensure that the drupal database exists] *************** 
+changed: [52.28.64.54]
+
+TASK: [drupal | mysql | create the drupal mysql user] ************************* 
+changed: [52.28.64.54]
+
+TASK: [drupal | drush | ensure /etc/drush directory exists] ******************* 
+changed: [52.28.64.54]
+
+TASK: [drupal | drush | copy drush.ini] *************************************** 
+changed: [52.28.64.54]
+
+TASK: [drupal | drupal-install | copy drush makefile] ************************* 
+changed: [52.28.64.54]
+
+TASK: [drupal | drupal-install | check lock file] ***************************** 
+ok: [52.28.64.54]
+
+TASK: [drupal | drupal-install | run drush make] ****************************** 
+changed: [52.28.64.54]
+
+TASK: [drupal | drupal-install | run drush site-install] ********************** 
+changed: [52.28.64.54]
+
+TASK: [drupal | drupal-install | set permissons] ****************************** 
+changed: [52.28.64.54]
+
+TASK: [drupal | drupal-install | create lock file] **************************** 
+changed: [52.28.64.54]
+
+NOTIFIED: [apache | apache-restart] ******************************************* 
+changed: [52.28.64.54]
+
+NOTIFIED: [apache | apache-reload] ******************************************** 
+changed: [52.28.64.54]
+
+PLAY RECAP ******************************************************************** 
+52.28.64.54                : ok=35   changed=30   unreachable=0    failed=0   
+
+exit status: pid 19801 exit 0
+      - executing playbook site.yml finished
+
+  - managing test
+    - testing machine machine1
+      - running http test...
+        http://ec2-52-28-64-54.eu-central-1.compute.amazonaws.com ... OK
+      - running http test...
+        http://ec2-52-28-64-54.eu-central-1.compute.amazonaws.com/nonexistent-url ... OK
+
+real    3m46.457s
+user    0m3.063s
+sys     0m1.087s
