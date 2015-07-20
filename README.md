@@ -4,7 +4,7 @@ Drupal install & config ansible playbook
 This repository contains an ansible playbook, that will install a ready-to-use, working Drupal site on your machines.  
 But it's not only an ansible playbook, it is working together with my [cloud-manager](https://github.com/smatyas/cloud-manager) tool.
 
-So you can choose from one of these options, to use it:
+So you can choose from these options, to use it:
 
 1. Using the cloud-manager
 2. Using only ansible
